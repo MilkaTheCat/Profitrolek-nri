@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profitrolek TRG</title>
+    <!-- Подключаем красивые шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f4ebd0;
+            --ink: #3e2723;
+            --dark-red: #8b0000;
+            --gold: #d4af37;
+            --bg-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-dark);
+            color: var(--ink);
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/stucco.png');
+        }
+
+        header {
+            background-color: var(--dark-red);
+            color: var(--gold);
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 5px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Навигация */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #2c1a16;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        nav button {
+            font-family: 'Cinzel', serif;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav button:hover {
+            color: var(--gold);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        nav button.active {
+            color: var(--gold);
+            border-bottom: 3px solid var(--gold);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Основной контейнер-пергамент */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: var(--parchment);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 50px rgba(139, 69, 19, 0.2), 0 10px 30px rgba(0,0,0,0.8);
+            border: 1px solid #d2b48c;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeEffect 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Стилизация блоков правил */
+        .rule-block {
+            margin-bottom: 30px;
+        }
+
+        .rule-block h2 {
+            color: var(--dark-red);
+            border-bottom: 2px solid var(--dark-red);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.4);
+            border-left: 4px solid var(--dark-red);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--dark-red);
+            font-size: 1.5em;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--dark-red);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Profitrolek TRG</h1>
+        <p style="font-family: 'Lora', serif; font-size: 1.2em; color: #eee;">Свод правил и механик для эпических кампаний</p>
+    </header>
+
+    <nav>
+        <button class="tab-btn active" onclick="openTab(event, 'basics')">Основы игры</button>
+        <button class="tab-btn" onclick="openTab(event, 'races')">Расы</button>
+        <button class="tab-btn" onclick="openTab(event, 'classes')">Классы</button>
+    </nav>
+
+    <div class="container">
+        
+        <!-- ВКЛАДКА: ОСНОВЫ ИГРЫ -->
+        <div id="basics" class="tab-content active">
+            <div class="rule-block">
+                <h2>Путешествия и проверки</h2>
+                <p>Игра делится на путешествия и бои. Для любого небоевого действия (головоломки, общение и т.д.) необходимо побить спасбросок, сложность которого определяет мастер. Игрок бросает д20: если сумма выпавшего числа и модификатора характеристики больше или равна спасброску — действие успешно. В бою спасбросок зависит от типа атаки и защиты врага.</p>
+            </div>
+
+            <div class="rule-block">
+                <h2>Боевая система</h2>
+                <p>Битва проходит в пошаговом режиме. В начале бросается инициатива (д20) — у кого число больше, тот ходит первее. При одинаковом броске персонажи ходят одновременно, нанося урон в один ход.</p>
+                
+                <div class="card">
+                    <h3>Механика щита и укрытия</h3>
+                    <p>Вы можете потратить весь свой ход на защиту, объяснив, как именно вы прячетесь. Это полностью аннулирует урон по вам, но есть шанс сломать укрытие до момента починки.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Критический урон</h3>
+                    <p>При критическом попадании наносится урон размером в 2 кости вашего оружия, при этом ко второй кости также добавляется модификатор характеристики. Если враг укрывался, крит ломает его укрытие и наносит обычный урон.</p>
+                </div>
+            </div>
+
+            <div class="rule-block">
+                <h2>Характеристики и персонажи</h2>
+                <p>Для удобства создания персонажей можно использовать Long Story Short.</p>
+                <ul>
+                    <li>Модификаторы характеристик добавляются к попаданию, урону и действиям.</li>
+                    <li>Владение характеристикой дает бонусы: +1 на 1 уровне, +2 на 3-м, +3 на 5-м, +4 на 10-м и +5 на 15-м.</li>
+                    <li>Владение навыком увеличивает эффективность на 150% (к броску прибавляется целое число модификатора плюс его половина).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА: РАСЫ -->
+        <div id="races" class="tab-content">
+            <div class="rule-block">
+                <h2>Игровые расы</h2>
+                <p>Пока нет. <i>(Здесь ты сможешь добавлять новые народы, копируя карточки ниже).</i></p>
+                
+                <!-- Заготовка для будущей расы -->
+                <!--
+                <div class="card">
+                    <h3>Название расы</h3>
+                    <p><strong>Особенности:</strong> Описание механик.</p>
+                </div>
+                -->
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА: КЛАССЫ -->
+        <div id="classes" class="tab-content">
+            <div class="rule-block">
+                <h2>Классы персонажей</h2>
+                <p>Классы в системе делятся на магические, не магические и полумагические.</p>
+                
+                <h3 style="color: var(--dark-red); margin-top: 30px;">Не магические классы</h3>
+                
+                <div class="card">
+                    <h3>Воин</h3>
+                    <p><strong>Боевой атрибут:</strong> Сила.</p>
+                    <p>Первоклассно управляется со всеми видами холодного оружия.</p>
+                    <ul>
+                        <li><span class="highlight">Парирование:</span> Враг должен прокинуть спасбросок силы, иначе его атака нанесет урон ему самому.</li>
+                        <li><span class="highlight">Массовая атака:</span> Наносит урон всем существам в радиусе (без модификатора), но только тем, чей класс защиты ниже броска на попадание.</li>
+                        <li><span class="highlight">Оглушение:</span> Удар тупой частью оружия. Если спасбросок телосложения врага меньше вашего броска на силу, враг теряет один ход.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Плут (Разбойник)</h3>
+                    <p><strong>Боевые атрибуты:</strong> Ловкость, Интеллект.</p>
+                    <p>Использует навыки для ударов в слабые места противника.</p>
+                    <ul>
+                        <li><span class="highlight">Скрытность:</span> Прокинув ловкость против мудрости врага, плут становится недосягаемым для его ударов. Атака из скрытности наносит удвоенный урон.</li>
+                        <li><span class="highlight">Анализированная атака:</span> Наносит уменьшенный вдвое урон, но класс защиты (КЗ) врага для этого удара также уменьшается вдвое.</li>
+                        <li><span class="highlight">Уворот:</span> Спасбросок на ловкость позволяет обойти урон врага, но без возможности нанести ответный удар.</li>
+                    </ul>
+                </div>
+
+                <h3 style="color: var(--dark-red); margin-top: 30px;">Магические классы</h3>
+
+                <div class="card">
+                    <h3>Волшебник</h3>
+                    <p><strong>Боевой атрибут:</strong> Интеллект.</p>
+                    <p>Использует ячейки маны для заклинаний (восстанавливаются зельем или отдыхом). На 1-м уровне 6 ячеек, на 3-м — 10, и далее +4 ячейки каждые 3 уровня.</p>
+                    <ul>
+                        <li><span class="highlight">1 уровень:</span> Урон 2д6, лечение д6. Создание дефектных объектов до 10х10см (исчезают через полчаса).</li>
+                        <li><span class="highlight">3 уровень:</span> Урон 2д8, лечение д8. Объекты до 50х50см, выглядят достойно (исчезают через полчаса).</li>
+                        <li><span class="highlight">6 уровень:</span> Урон 2д10, лечение д10. Неотличимые объекты до 1х1м (исчезают через час).</li>
+                        <li><span class="highlight">10 уровень:</span> Урон 2д12, лечение д12. Идеальные объекты до 2х2м (исчезают через 2 часа).</li>
+                        <li><span class="highlight">15 уровень:</span> Урон 2д20, лечение д20. Идеальные объекты до 5х5м (исчезают через 6 часов).</li>
+                        <li><span class="highlight">20 уровень:</span> Созданные магические объекты больше не исчезают.</li>
+                    </ul>
+                </div>
+
+                <h3 style="color: var(--dark-red); margin-top: 30px;">Полумагические классы</h3>
+
+                <div class="card">
+                    <h3>Паладин</h3>
+                    <p><strong>Основные атрибуты:</strong> Сила, Интеллект.</p>
+                    <p>Имеет 3 ячейки маны. Тяжелое оружие в его руках наносит дополнительные 4 единицы урона.</p>
+                    <ul>
+                        <li><span class="highlight">Защита:</span> Может закрыть себя или союзника щитом, аннулируя урон врага, но получая небольшой урон сам.</li>
+                        <li><span class="highlight">Здоровье (Регенерация):</span> +4 хп за спасение союзника от урона, +10 хп за спасение от смерти, +20 хп за воскрешение.</li>
+                        <li><span class="highlight">Воскрешение:</span> Затрачивает ячейку маны для воскрешения союзника с половиной хп (на 5-м уровне — с полным здоровьем).</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).style.display = "block";
+            
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
+
